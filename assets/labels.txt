@@ -1,5 +1,8 @@
 Animal Selvagem
 Aviso Perigo
-Circulacao Bicicleta
 Preferencia
 Pare
+Passagem Pedestre
+Transito Caminhões
+Trecho Obra
+Ultrapassagem

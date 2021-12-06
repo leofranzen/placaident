@@ -12,11 +12,10 @@ class _HomeState extends State<Home> {
   bool _loading = true;
   late File _image;
   late List _output;
-  final picker = ImagePicker(); //allows us to pick image from gallery or camera
+  final picker = ImagePicker(); // permite escolher uma imagem da galeria ou câmera
 
   @override
   void initState() {
-    //initS is the first function that is executed by default when this class is called
     super.initState();
     loadModel().then((value) {
       setState(() {});
@@ -25,17 +24,17 @@ class _HomeState extends State<Home> {
 
   @override
   void dispose() {
-    //dis function disposes and clears our memory
+    // limpa memoria
     super.dispose();
     Tflite.close();
   }
 
   classifyImage(File image) async {
-    //this function runs the model on the image
+    // executa o modelo
     var output = await Tflite.runModelOnImage(
       path: image.path,
       numResults:
-          5, //the amout of categories our neural network can predict (here no. of animals)
+          8,
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5,
@@ -47,7 +46,6 @@ class _HomeState extends State<Home> {
   }
 
   loadModel() async {
-    //this function loads our model
     await Tflite.loadModel(
       model: 'assets/model.tflite',
       labels: 'assets/labels.txt',
@@ -55,7 +53,6 @@ class _HomeState extends State<Home> {
   }
 
   pickImage() async {
-    //this function to grab the image from camera
     var image = await picker.pickImage(source: ImageSource.camera);
     if (image == null) return null;
 
@@ -66,7 +63,6 @@ class _HomeState extends State<Home> {
   }
 
   pickGalleryImage() async {
-    //this function to grab the image from gallery
     var image = await picker.pickImage(source: ImageSource.gallery);
     if (image == null) return null;
 
@@ -108,7 +104,7 @@ class _HomeState extends State<Home> {
               Container(
                 child: Center(
                   child: _loading == true
-                      ? null //show nothing if no picture selected
+                      ? null
                       : Container(
                           child: Column(
                             children: [
@@ -127,7 +123,6 @@ class _HomeState extends State<Home> {
                                 height: 25,
                                 thickness: 1,
                               ),
-                              // ignore: unnecessary_null_comparison
                               _output != null
                                   ? Text(
                                       'Identificado: ${_output[0]['label']}',
