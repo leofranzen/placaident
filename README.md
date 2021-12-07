@@ -14,3 +14,17 @@ E após tirar a foto ou selecionar a foto de uma placa o aplicativo irá tentar 
 <kbd>
   <img src="https://user-images.githubusercontent.com/65728166/144726219-bfbb9dbd-e698-4808-8b25-4f76c7813955.jpeg" width="30%" height="50%">
 </kbd>
+
+# Modelo
+
+O modelo foi criado pelo <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a>, e suporta as seguintes placas:
+
+<li>Animal Selvagem</li>
+<li>Aviso Perigo</li>
+<li>Preferencia</li>
+<li>Pare</li>
+<li>Passagem Pedestre</li>
+<li>Transito Caminhões</li>
+<li>Trecho Obra</li>
+<li>Ultrapassagem</li>
+
